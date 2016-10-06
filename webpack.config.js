@@ -14,6 +14,13 @@ var reactDomExternal = {
   amd: 'react-dom'
 };
 
+var rxExternal = {
+  root: 'Rx',
+  commonjs2: 'rx',
+  commonjs: 'rx',
+  amd: 'rx'
+};
+
 module.exports = {
     output: {
         library: 'ReactLazyLoadHandler',
@@ -21,7 +28,8 @@ module.exports = {
     },
     externals: {
         'react': reactExternal,
-        'react-dom': reactDomExternal
+        'react-dom': reactDomExternal,
+        'rx': rxExternal
     },
     module: {
         loaders: [
