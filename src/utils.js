@@ -1,10 +1,14 @@
-function getViewport() {
+const { key, container } = (() => {
     let container = window;
     let key = 'inner';
     if (!container.innerWidth) {
         key = 'client';
         container = document.documentElement || document.body;
     }
+    return { key, container }
+})();
+
+function getViewport() {
     return {
         width: container[`${key}Width`],
         height: container[`${key}Height`],
