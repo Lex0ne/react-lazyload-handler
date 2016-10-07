@@ -1,6 +1,6 @@
 {
   "name": "react-lazyload-handler",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "description": "React lazyload handler",
   "main": "lib/index.js",
   "scripts": {
