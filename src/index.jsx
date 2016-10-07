@@ -8,11 +8,15 @@ export default class LazyLoadHandler extends React.Component {
     static propTypes = {
         isDisposeObserverOnLoad: React.PropTypes.bool,
         onContentVisible: React.PropTypes.func,
+        debounce: React.PropTypes.number,
+        throttle: React.PropTypes.number,
     };
 
     static defaultProps = {
         onContentVisible: () => {},
         isDisposeObserverOnLoad: true,
+        debounce: 0,
+        throttle: 0,
     };
 
     constructor(props) {
@@ -20,12 +24,26 @@ export default class LazyLoadHandler extends React.Component {
         this.lazyLoadHandler = this.lazyLoadHandler.bind(this);
     }
 
+    shouldComponentUpdate(nextProps, _) {
+        return !nextProps.isDisposeObserverOnLoad;
+    }
+
     componentDidMount() {
         const componentNode = ReactDOM.findDOMNode(this);
         this.viewportChangeObserver = Rx.Observable.merge(
-                Rx.Observable.fromEvent(window, 'scroll'),
-                Rx.Observable.fromEvent(window, 'resize'),
-            )
+            Rx.Observable.fromEvent(window, 'scroll'),
+            Rx.Observable.fromEvent(window, 'resize'),
+        );
+
+        if (this.props.debounce) {
+            this.viewportChangeObserver = this.viewportChangeObserver.debounce(this.props.debounce);
+        }
+
+        if (this.props.throttle) {
+            this.viewportChangeObserver = this.viewportChangeObserver.throttle(this.props.throttle);
+        }
+
+        this.viewportChangeObserver
             .map(() => isElementPartInViewport(componentNode))
             .distinctUntilChanged()
             .filter((value) => value)
