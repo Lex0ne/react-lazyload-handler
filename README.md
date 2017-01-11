@@ -7,7 +7,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import LazyLoadHandler from 'react-lazyload-handler';
 
-<LazyLoadHandler isDisposeObserverOnLoad={true} onContentVisible={() => ...} />
+<LazyLoadHandler
+    isDisposeObserverOnLoad={true}
+    onContentVisible={() => ...}
+    debounce={...}
+    throttle={...}
+/>
 ```
 
 ## Installation

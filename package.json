@@ -1,11 +1,11 @@
 {
   "name": "react-lazyload-handler",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "React lazyload handler",
   "main": "lib/index.js",
   "scripts": {
     "build:lib": "babel ./src -d lib",
-    "build:umd": "webpack src/index.js dist/ReactLazyLoadHandler.js --config webpack.config.js",
+    "build:umd": "webpack ./src/index.js dist/ReactLazyLoadHandler.js --config webpack.config.js",
     "watch": "babel --watch ./src -d lib",
     "lint": "eslint src/",
     "test": "echo \"Error: no test specified\" && exit 1"
