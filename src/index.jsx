@@ -45,7 +45,6 @@ export default class LazyLoadHandler extends React.Component {
 
         this.viewportChangeObserver
             .map(() => isElementPartInViewport(componentNode))
-            .distinctUntilChanged()
             .filter((value) => value)
             .subscribe(this.lazyLoadHandler);
 
