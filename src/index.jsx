@@ -1,15 +1,16 @@
 import Rx from 'rx';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import { isElementPartInViewport } from './utils';
 
 
 export default class LazyLoadHandler extends React.Component {
     static propTypes = {
-        isDisposeObserverOnLoad: React.PropTypes.bool,
-        onContentVisible: React.PropTypes.func,
-        debounce: React.PropTypes.number,
-        throttle: React.PropTypes.number,
+        isDisposeObserverOnLoad: PropTypes.bool,
+        onContentVisible: PropTypes.func,
+        debounce: PropTypes.number,
+        throttle: PropTypes.number,
     };
 
     static defaultProps = {
