@@ -10,8 +10,8 @@ import LazyLoadHandler from 'react-lazyload-handler';
 <LazyLoadHandler
     isDisposeObserverOnLoad={true}
     onContentVisible={() => ...}
-    debounce={...}
-    throttle={...}
+    debounce={500}
+    throttle={500}
 />
 ```
 
