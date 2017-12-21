@@ -1,3 +1,5 @@
+[![npm downloads](https://img.shields.io/npm/dm/react-lazyload-handler.svg?style=flat-square)](https://www.npmjs.com/package/react-lazyload-handler)
+
 # react-lazyload-handler
 
 ## Quick start
